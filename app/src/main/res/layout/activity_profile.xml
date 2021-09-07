@@ -3,8 +3,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     tools:context=".ProfileActivity">
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/img_profile"
@@ -43,37 +53,25 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/tv_name_profile"
         android:layout_centerHorizontal="true"
-        android:textSize="24sp"
-        android:textStyle="bold"
+        android:textSize="18sp"
+        android:textStyle="normal"
         app:layout_constraintEnd_toEndOf="@+id/tv_name_profile"
         app:layout_constraintStart_toStartOf="@+id/tv_name_profile"
         app:layout_constraintTop_toBottomOf="@+id/tv_name_profile" />
 
-    <TextView
-        android:id="@+id/tv_followers_profile"
-        android:layout_width="wrap_content"
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tab"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/tv_email_profile"
-        android:layout_centerHorizontal="true"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/tv_email_profile"
-        app:layout_constraintStart_toStartOf="@+id/tv_email_profile"
+        android:layout_marginTop="16dp"
         app:layout_constraintTop_toBottomOf="@+id/tv_email_profile" />
 
-
-    <TextView
-        android:id="@+id/tv_following_profile"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/tv_followers_profile"
-        android:layout_centerHorizontal="true"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/tv_followers_profile"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/tv_followers_profile"
-        app:layout_constraintTop_toBottomOf="@+id/tv_followers_profile" />
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tab" />
 
 <!--    <ImageButton-->
 <!--        android:id="@+id/share_button"-->

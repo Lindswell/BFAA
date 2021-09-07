@@ -58,17 +58,17 @@ class ProfileViewModel : ViewModel() {
     }
 
 
-    /*fun setFollowers(username: String?) {
+    fun setFollowers(username: String?) {
         val followers = ArrayList<User>()
         val client = AsyncHttpClient()
         val url = "https://api.github.com/users/$username/followers"
 
-        client.addHeader("Authorization", "token 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")
+        client.addHeader("Authorization", "token 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")
         client.addHeader("User-Agent", "request")
 
         client.get(url, object :AsyncHttpResponseHandler(){
             override fun onSuccess(statusCode: Int, headers: Array<out Header>, responseBody: ByteArray) {
-                *//*Log.d(TAG, result)*//*
+
                 try {
                     val result = String(responseBody)
                     Log.d("ViewModel", result)
@@ -106,12 +106,12 @@ class ProfileViewModel : ViewModel() {
         val client = AsyncHttpClient()
         val url = "https://api.github.com/users/$username/following"
 
-        client.addHeader("Authorization", "token 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")
+        client.addHeader("Authorization", "token token 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")
         client.addHeader("User-Agent", "request")
 
         client.get(url, object :AsyncHttpResponseHandler(){
             override fun onSuccess(statusCode: Int, headers: Array<out Header>, responseBody: ByteArray) {
-                *//*Log.d(TAG, result)*//*
+
                 try {
                     val result = String(responseBody)
                     Log.d("ViewModel", result)
@@ -140,5 +140,5 @@ class ProfileViewModel : ViewModel() {
 
     fun getFollowing(): LiveData<ArrayList<User>> {
         return dataFollowing
-    }*/
+    }
 }
