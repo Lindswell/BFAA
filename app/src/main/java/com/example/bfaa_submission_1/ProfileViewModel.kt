@@ -21,7 +21,7 @@ class ProfileViewModel : ViewModel() {
         val client = AsyncHttpClient()
         val url = "https://api.github.com/users/$username"
 
-        client.addHeader("Authorization", "token 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")
+        client.addHeader("Authorization", "token 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")
         client.addHeader("User-Agent", "request")
 
         client.get(url, object : AsyncHttpResponseHandler(){
@@ -36,8 +36,9 @@ class ProfileViewModel : ViewModel() {
                     gitUserDetail.name = jsonObject.getString("login")
                     gitUserDetail.html = jsonObject.getString("html_url")
                     gitUserDetail.photo = jsonObject.getString("avatar_url")
-                    gitUserDetail.follower = jsonObject.getString("followers_url")
-                    gitUserDetail.following = jsonObject.getString("following_url")
+                    gitUserDetail.repository = jsonObject.getString("public_repos")
+                    gitUserDetail.followers_num = jsonObject.getString("followers")
+                    gitUserDetail.following_num = jsonObject.getString("following")
 //                        detail.add(gitUserDetail)
                     detailUser.postValue(gitUserDetail)
 
@@ -63,7 +64,7 @@ class ProfileViewModel : ViewModel() {
         val client = AsyncHttpClient()
         val url = "https://api.github.com/users/$username/followers"
 
-        client.addHeader("Authorization", "token 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")
+        client.addHeader("Authorization", "token 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")
         client.addHeader("User-Agent", "request")
 
         client.get(url, object :AsyncHttpResponseHandler(){
@@ -78,6 +79,7 @@ class ProfileViewModel : ViewModel() {
                         val userFollowers = User()
                         userFollowers.name = jsonObject.getString("login")
                         userFollowers.photo = jsonObject.getString("avatar_url")
+                        userFollowers.html = jsonObject.getString("html_url")
 
                         followers.add(userFollowers)
                     }
@@ -106,7 +108,7 @@ class ProfileViewModel : ViewModel() {
         val client = AsyncHttpClient()
         val url = "https://api.github.com/users/$username/following"
 
-        client.addHeader("Authorization", "token token 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")
+        client.addHeader("Authorization", "token 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")
         client.addHeader("User-Agent", "request")
 
         client.get(url, object :AsyncHttpResponseHandler(){
@@ -121,6 +123,7 @@ class ProfileViewModel : ViewModel() {
                         val userFollowing = User()
                         userFollowing.name = jsonObject.getString("login")
                         userFollowing.photo = jsonObject.getString("avatar_url")
+                        userFollowing.html = jsonObject.getString("html_url")
 
                         following.add(userFollowing)
                     }

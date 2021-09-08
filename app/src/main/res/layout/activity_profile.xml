@@ -13,15 +13,17 @@
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.206" />
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/img_profile"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         android:clickable="true"
         android:elevation="5dp"
         android:focusable="true"
@@ -30,7 +32,7 @@
         app:civ_border_color="#fff"
         app:civ_border_width="3dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.061"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -40,9 +42,10 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/img_profile"
         android:layout_centerHorizontal="true"
-        android:textSize="24sp"
-        android:textStyle="bold"
+        android:layout_marginTop="12dp"
         android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/img_profile"
         app:layout_constraintStart_toStartOf="@+id/img_profile"
         app:layout_constraintTop_toBottomOf="@+id/img_profile" />
@@ -53,9 +56,11 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/tv_name_profile"
         android:layout_centerHorizontal="true"
-        android:textSize="18sp"
+        android:layout_marginTop="4dp"
+        android:textSize="16sp"
         android:textStyle="normal"
         app:layout_constraintEnd_toEndOf="@+id/tv_name_profile"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/tv_name_profile"
         app:layout_constraintTop_toBottomOf="@+id/tv_name_profile" />
 
@@ -73,7 +78,82 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tab" />
 
-<!--    <ImageButton-->
+    <TextView
+        android:id="@+id/tv_repos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/repos_count"
+        app:layout_constraintEnd_toEndOf="@+id/repos_count"
+        app:layout_constraintHorizontal_bias="0.500"
+        app:layout_constraintStart_toStartOf="@+id/repos_count" />
+
+    <TextView
+        android:textStyle="bold"
+        android:id="@+id/repos_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginBottom="140dp"
+        android:text="@string/repos"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/tab"
+        app:layout_constraintStart_toEndOf="@+id/img_profile" />
+
+    <TextView
+        android:textStyle="bold"
+        android:id="@+id/follower_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:text="@string/follwer_count"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/repos_count"
+        app:layout_constraintStart_toEndOf="@+id/repos_count"
+        app:layout_constraintTop_toTopOf="@+id/repos_count"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/tv_follower"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/follower_count"
+        app:layout_constraintEnd_toEndOf="@+id/follower_count"
+        app:layout_constraintStart_toStartOf="@+id/follower_count"
+        app:layout_constraintTop_toTopOf="@+id/tv_repos"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:textStyle="bold"
+        android:id="@+id/following_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="@string/follwer_count"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/follower_count"
+        app:layout_constraintStart_toEndOf="@+id/follower_count"
+        app:layout_constraintTop_toTopOf="@+id/follower_count"
+        app:layout_constraintVertical_bias="0.0"
+        android:textAlignment="center"/>
+
+    <TextView
+        android:id="@+id/tv_following"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/following_count"
+        app:layout_constraintEnd_toEndOf="@+id/following_count"
+        app:layout_constraintStart_toStartOf="@+id/following_count"
+        app:layout_constraintTop_toTopOf="@+id/tv_follower"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <!--    <ImageButton-->
 <!--        android:id="@+id/share_button"-->
 <!--        android:layout_width="200dp"-->
 <!--        android:layout_height="55dp"-->

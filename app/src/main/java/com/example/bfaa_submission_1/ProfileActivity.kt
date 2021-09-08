@@ -34,9 +34,7 @@ class ProfileActivity : AppCompatActivity() {
         profileViewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory()).get(ProfileViewModel::class.java)
         val userData = intent.getParcelableExtra<User>(EXTRA_USER) as User
 
-//        userData.name?.let {
-//
-//        }
+
 
         profileViewModel.setDetailUser(userData.name!!)
         profileViewModel.getDetailUser().observe(this,{
@@ -47,31 +45,31 @@ class ProfileActivity : AppCompatActivity() {
 
                 tvNameProfile.text = it.name
                 tvEmailProfile.text = it.html
-//                tvFollowersProfile.text = it.follower
-//                tvFollowingProfile.text = it.following
+                tvRepos.text = it.repository
+                tvFollower.text = it.followers_num
+                tvFollowing.text = it.following_num
             }
             showLoading(false)
         })
-        tabLayout(username = String())
-//        val shareButton: ImageButton = findViewById(R.id.share_button)
-//        shareButton.setOnClickListener {
-//            Toast.makeText(this, "Share Success", Toast.LENGTH_SHORT).show()
-//        }
+
+        tabLayout(param = String())
+        userData.name?.let {
+            tabLayout(it)
+        }
 
         supportActionBar!!.title = "Profile"
     }
 
-    private fun tabLayout(username: String) {
+    private fun tabLayout(param: String) {
         val sectionPagerAdapter = SectionPagerAdapter(this)
-        sectionPagerAdapter.username = username
+        sectionPagerAdapter.username = param
 
         val viewPager2: ViewPager2 = binding.viewPager
         viewPager2.adapter = sectionPagerAdapter
 
         val tabs: TabLayout = binding.tab
-        TabLayoutMediator(tabs, viewPager2) {tab, position ->
-            tab.text = resources.getString(
-                TAB_TITLES[position])
+        TabLayoutMediator(tabs, viewPager2) { tab, position ->
+            tab.text = resources.getString(TAB_TITLES[position])
         }.attach()
         supportActionBar?.elevation = 0f
     }

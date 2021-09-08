@@ -10,5 +10,7 @@ data class User (
     var company: String? = null,
     var follower: String? = null,
     var following: String? = null,
-    var photo: String? = null
+    var photo: String? = null,
+    var following_num: String? = null,
+    var followers_num: String? = null
 ): Parcelable

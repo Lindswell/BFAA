@@ -28,7 +28,7 @@ class MainViewModel: ViewModel() {
         val client = AsyncHttpClient()
         val url = "https://api.github.com/search/users?q=$username"
 
-        client.addHeader("Authorization", "token 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")
+        client.addHeader("Authorization", "token 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")
         client.addHeader("User-Agent", "request")
 
         client.get(url, object :AsyncHttpResponseHandler(){
