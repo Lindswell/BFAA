@@ -1,7 +1,11 @@
 package com.example.bfaa_submission_1
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.Settings
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.widget.*
 import androidx.annotation.StringRes
@@ -36,7 +40,7 @@ class ProfileActivity : AppCompatActivity() {
 
 
 
-        profileViewModel.setDetailUser(userData.name!!)
+        profileViewModel.setDetailUser(userData.username!!)
         profileViewModel.getDetailUser().observe(this,{
             binding.apply {
                 Glide.with(this@ProfileActivity)
@@ -45,6 +49,8 @@ class ProfileActivity : AppCompatActivity() {
 
                 tvNameProfile.text = it.name
                 tvEmailProfile.text = it.html
+                tvCompanyProfile.text = it.company
+                tvLocationProfile.text = it.location
                 tvRepos.text = it.repository
                 tvFollower.text = it.followers_num
                 tvFollowing.text = it.following_num
@@ -53,11 +59,11 @@ class ProfileActivity : AppCompatActivity() {
         })
 
         tabLayout(param = String())
-        userData.name?.let {
+        userData.username?.let {
             tabLayout(it)
         }
 
-        supportActionBar!!.title = "Profile"
+        supportActionBar!!.title = userData.username
     }
 
     private fun tabLayout(param: String) {
@@ -72,6 +78,19 @@ class ProfileActivity : AppCompatActivity() {
             tab.text = resources.getString(TAB_TITLES[position])
         }.attach()
         supportActionBar?.elevation = 0f
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_profile, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == R.id.setting_profile) {
+            val localeProfIntent = Intent(Settings.ACTION_LOCALE_SETTINGS)
+            startActivity(localeProfIntent)
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     private fun showLoading(state: Boolean) {

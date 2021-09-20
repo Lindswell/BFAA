@@ -43,7 +43,7 @@ class UserAdapter: RecyclerView.Adapter<UserAdapter.ListViewHolder>(){
                 Glide.with(itemView.context)
                     .load(user.photo)
                     .into(userPhoto)
-                binding.userName.text = user.name
+                binding.userName.text = user.username
                 binding.userHtml.text = user.html
 
                 itemView.setOnClickListener { onItemClickCallback?.onItemClicked(user) }

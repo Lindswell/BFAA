@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="username">Username :</string>
+    <string name="location">Location :</string>
+    <string name="company">Company :</string>
+    <string name="repository">Repositori :</string>
+    <string name="follower">Pengikut</string>
+    <string name="following">Mengikuti</string>
+    <string name="item" />
+    <string name="search">Pencarian</string>
+    <string name="setting">Pengaturan</string>
+    <string name="hint">Masukkan Kata Kunci</string>
+    <string name="menu">Menu</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="repos">Repos</string>
+    <string name="follwer_count">Pengikut</string>
+</resources>

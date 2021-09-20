@@ -46,23 +46,23 @@ class ForagmentFollowing : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val  user = arguments?.getString(ARG_USERNAME)
 
-        profileViewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory()).get(ProfileViewModel::class.java)
-        if (user != null) {
-            profileViewModel.setFollowing(user)
-        }
+//        profileViewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory()).get(ProfileViewModel::class.java)
+//        if (user != null) {
+//            profileViewModel.setFollowing(user)
+//        }
+//
+//        profileViewModel.getFollowing().observe(viewLifecycleOwner) {
+//            adapter.setData(it)
+//            showLoading(false)
+//        }
 
-        profileViewModel.getFollowing().observe(viewLifecycleOwner) {
-            adapter.setData(it)
-            showLoading(false)
-        }
-
-        adapter.setOnItemClickCallback(object : UserAdapter.OnItemClickCallback {
-            override fun onItemClicked(data: User) {
-                val followingIntent = Intent(activity, ProfileActivity::class.java)
-                followingIntent.putExtra(ProfileActivity.EXTRA_USER, data)
-                startActivity(followingIntent)
-            }
-        })
+//        adapter.setOnItemClickCallback(object : UserAdapter.OnItemClickCallback {
+//            override fun onItemClicked(data: User) {
+//                val followingIntent = Intent(activity, ProfileActivity::class.java)
+//                followingIntent.putExtra(ProfileActivity.EXTRA_USER, data)
+//                startActivity(followingIntent)
+//            }
+//        })
     }
 
     private fun showLoading(state: Boolean) {

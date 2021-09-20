@@ -16,5 +16,6 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="repos">Repos</string>
     <string name="follwer_count">Follower</string>
+    <string name="logo_splash">Splash Screen Logo</string>
 
 </resources>
